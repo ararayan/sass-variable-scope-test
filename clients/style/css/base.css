@@ -1,0 +1,34 @@
+.main {
+  width: 100%; }
+
+.header {
+  height: 50px; }
+  .header p {
+    border-style: solid;
+    border-color: #ccc;
+    border-width: 3px; }
+  .header title {
+    font-size: 16px;
+    height: 10px; }
+  .header__btn {
+    height: 90px; }
+
+.if {
+  height: 90px; }
+
+.for {
+  height: 999px; }
+
+.for {
+  height: 100000px; }
+
+.each {
+  height: 100000px; }
+
+.main {
+  height: 3333333px; }
+  .main__inner {
+    height: 6666666px; }
+
+.footer {
+  height: 120px; }

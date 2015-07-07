@@ -1,0 +1,94 @@
+@mixin ct-border($borderWidth){
+		& p{
+			@content;
+			border-width: $borderWidth;
+		}
+}
+
+%width{
+	width: 100%;
+}
+
+
+$height: 120px;
+
+// block scope
+@at-root{
+
+	$height: 50px;
+	$borderWidth: 3px;
+	
+	// block scope, mixin will bring the variable out when invocation;
+	@mixin height(){
+		
+			height: $height;
+			$height: 90px;
+		
+	}
+	
+	// block scope
+	@function changeHeight($height){
+		$height: $height * 2;
+		@return $height;
+	}
+	
+	.header{
+		
+		height: $height; // it will be 50px;
+
+		@include ct-border($borderWidth){
+			border-style: solid;
+			border-color: #ccc;
+		}
+		
+		//no block scope
+		& title{
+			font-size: 16px;
+			$height: 10px;    // override $height 50px to 10px;
+			@include height();	// mixin internal variable bring the $height out, override and $height will be 90px;
+		}
+		
+		&__btn {
+			height: $height; // it will be 90px;
+		}
+		
+	}
+
+	// no block scope
+	@if true {
+		.if{
+			height: $height;
+		}
+		$height: 999px;
+	}
+
+	// no block scope
+	@for $i from 1 through 2 {
+		.for {
+			height: $height;
+		}
+		$height: 100000px;
+	}
+	// no block scope
+	@each $tt in ("1") {
+
+		.each{
+			height: $height;
+		}
+		$height: 3333333px;
+
+	}
+
+	.main{
+		&__inner{
+			height: changeHeight($height);
+		}
+		height: $height;
+		@extend %width;
+	}
+
+}
+
+.footer{
+	height: $height;
+}

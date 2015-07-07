@@ -1,0 +1,19 @@
+{
+  "name": "sass-variable-scope",
+  "version": "0.0.1",
+  "description": "test sass variable scope ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sass",
+    "scope"
+  ],
+  "author": "ararayan",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.0.3"
+  }
+}
